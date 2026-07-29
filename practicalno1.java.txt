@@ -1,0 +1,84 @@
+package javadmo;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+public class practicalno1 {
+public static void main(String[] args) {
+	Scanner scanner = new Scanner(System.in);
+	boolean running = true;
+	System.out.print("Enter name:");
+	String name=scanner.nextLine();
+	System.out.print("Enter roll no:");
+	int roll=scanner.nextInt();
+	System.out.println("=================");
+	System.out.println("===Java calculator===");
+	//main loop keeps the calculator running
+	while (running) {
+		try {
+			//Display menu
+			System.out.println("\nChoose an Operation:");
+			System.out.println("1.Additon(+)");
+			System.out.println("2.Substraction(-)");
+			System.out.println("3.Multiplication(*)");
+			System.out.println("4.Division(/)");
+			System.out.println("5.Exit");
+			System.out.println("Enter your choice:");
+			
+			int choice = scanner.nextInt();
+			
+			//Exit condition
+			if (choice==5) {
+				running = false;
+			System.out.print("Enter first number:");
+			break;
+		
+				}
+			System.out.println("Enter first number:");
+			double num1 = scanner.nextDouble();
+			
+			System.out.println("Enter second number");
+			double num2 = scanner.nextDouble();
+			double result;
+			
+		
+ switch (choice) {
+ case 1:
+ result=num1+num2;
+ System.out.println("result"+result);
+ break;
+ case 2:
+ result=num1-num2;
+ System.out.println("result"+result);
+ break;
+
+ case 3:
+	 result=num1*num2;
+	 System.out.println("result"+result);
+	 break;
+	 
+ case 4:
+	 if(num2==0) {
+		 System.out.println("Error:Division not allowed");
+	 } else {
+		 result=num1/num2;
+		 System.out.println("result"+result);
+	 }
+	 break;
+ default:                    
+	 System.out.println("Invalid choice. "+name+" Please select a valid option."); 
+ }
+ 
+		 
+	 }catch (InputMismatchException e) {   
+		 // Handles invalid numeric input     
+		 System.out.println(name+" Invalid input. Please enter numeric values only.");        
+		 scanner.nextLine(); // Clear invalid input  
+		 } catch (Exception e) {
+			 // Catches any unexpected errors           
+			 System.out.println(name+" An unexpected error occurred: " + e.getMessage());           
+			 scanner.nextLine(); 
+	 }
+	 
+		
+		}}
+}
